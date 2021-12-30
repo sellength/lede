@@ -45,7 +45,14 @@ jobs:
           sudo -E apt-get clean
 
           df -h
-
+      #自定义主题#
+      - name: Themes
+        run: |
+          cd package
+          mkdir openwrt-packages
+          cd openwrt-packages
+          git clone https://github.com/jerrykuku/luci-theme-argon.git 
+          git clone https://github.com/rosywrt/luci-theme-rosy.git
       - name: Update feeds
         run: |
           sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
@@ -81,6 +88,12 @@ jobs:
           cp -rf $(find ./bin/targets/ -type f) ./artifact/firmware/
           cp -rf $(find ./bin/packages/ -type f -name "*.ipk") ./artifact/package/
           cp -rf $(find ./bin/targets/ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
+          #编译x86_64固件
+          cat >> .config <<EOF
+            CONFIG_TARGET_x86=y
+            CONFIG_TARGET_x86_64=y
+            CONFIG_TARGET_x86_64_Generic=y
+          EOF
 
       - name: Deliver buildinfo
         uses: actions/upload-artifact@v2
@@ -99,8 +112,6 @@ jobs:
         with:
           name: OpenWrt_firmware
           path: ./bin/targets/
-  
-
       - name: Upload release asset
         if: github.event == 'release'
         uses: svenstaro/upload-release-action@v2
