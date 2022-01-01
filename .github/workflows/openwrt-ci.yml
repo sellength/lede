@@ -57,28 +57,13 @@ jobs:
           sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+          
       - name: Generate configuration file
         run: |
          make defconfig
          cat >> .config <<EOF
-         CONFIG_PACKAGE_luci-app-adbyby is not set
-         CONFIG_PACKAGE_luci-app-accesscontrol is not set
-         CONFIG_PACKAGE_luci-app-ddns=y is not set
-         CONFIG_PACKAGE_luci-app-filetransfer=y
-         CONFIG_PACKAGE_luci-app-firewall=y
-         CONFIG_PACKAGE_luci-app-flowoffload is not set
-         CONFIG_PACKAGE_luci-app-ramfree=y
-         CONFIG_PACKAGE_luci-app-adbyby-plus is not set
-         CONFIG_PACKAGE_luci-app-docker is not set
          CONFIG_PACKAGE_luci-theme-argon=y
          CONFIG_PACKAGE_luci-theme-rosy=y
-         CONFIG_PACKAGE_curl=y
-         CONFIG_PACKAGE_htop=y
-         CONFIG_PACKAGE_nano=y
-         CONFIG_PACKAGE_screen=y
-         CONFIG_PACKAGE_tree=y
-         CONFIG_PACKAGE_vim-fuller=y
-         CONFIG_PACKAGE_wget=y
          EOF
          
       - name: Make download
