@@ -59,7 +59,6 @@ jobs:
           ./scripts/feeds install -a
       - name: Generate configuration file
         run: |
-         make defconfig
          cat >> .config <<EOF
          CONFIG_PACKAGE_luci-app-adbyby is not set
          CONFIG_PACKAGE_luci-app-accesscontrol is not set
@@ -80,7 +79,7 @@ jobs:
          CONFIG_PACKAGE_vim-fuller=y
          CONFIG_PACKAGE_wget=y
          EOF
-         
+         make defconfig
       - name: Make download
         run: |
           make download -j8 || make download -j1 V=s
