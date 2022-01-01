@@ -60,8 +60,6 @@ jobs:
       - name: Generate configuration file
         # run: make defconfig
         run: |
-         rm -f ./.config*
-         touch ./.config
          cat >> .config <<EOF
          CONFIG_PACKAGE_luci-app-adbyby is not set
          CONFIG_PACKAGE_luci-app-accesscontrol is not set
@@ -82,7 +80,6 @@ jobs:
          CONFIG_PACKAGE_vim-fuller=y
          CONFIG_PACKAGE_wget=y
          EOF
-         sed -i 's/^[ \t]*//g' ./.config
          make defconfig
          
       - name: Make download
