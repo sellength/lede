@@ -62,7 +62,7 @@ jobs:
       - name: Generate configuration file
         # run: make defconfig
         run: |
-           #编译x86_64固件
+          #编译x86_64固件
           cat >> .config <<EOF
           CONFIG_TARGET_x86=y
           CONFIG_TARGET_x86_64=y
