@@ -58,18 +58,18 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Generate configuration file
-        # run: make defconfig
         run: |
+         make defconfig
          cat >> .config <<EOF
          CONFIG_PACKAGE_luci-app-adbyby is not set
          CONFIG_PACKAGE_luci-app-accesscontrol is not set
-         CONFIG_PACKAGE_luci-app-ddns=y #ddns
+         CONFIG_PACKAGE_luci-app-ddns=y is not set
          CONFIG_PACKAGE_luci-app-filetransfer=y
          CONFIG_PACKAGE_luci-app-firewall=y
-         CONFIG_PACKAGE_luci-app-flowoffload=y
+         CONFIG_PACKAGE_luci-app-flowoffload is not set
          CONFIG_PACKAGE_luci-app-ramfree=y
          CONFIG_PACKAGE_luci-app-adbyby-plus is not set
-         CONFIG_PACKAGE_luci-app-docker=y
+         CONFIG_PACKAGE_luci-app-docker is not set
          CONFIG_PACKAGE_luci-theme-argon=y
          CONFIG_PACKAGE_luci-theme-rosy=y
          CONFIG_PACKAGE_curl=y
@@ -80,7 +80,6 @@ jobs:
          CONFIG_PACKAGE_vim-fuller=y
          CONFIG_PACKAGE_wget=y
          EOF
-         make defconfig
          
       - name: Make download
         run: |
