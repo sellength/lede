@@ -62,7 +62,7 @@ jobs:
       - name: Coustom configure file
         run: |
           #rm -f ./.config*
-          touch ./.config
+          #touch ./.config
           #编译x86_64固件
           cat >> .config <<EOF
           CONFIG_TARGET_x86=y
@@ -178,8 +178,8 @@ jobs:
           # CONFIG_TARGET_IMAGES_PAD is not set
           # CONFIG_VMDK_IMAGES is not set
           #EOF
-          sed -i 's/^[ \t]*//g' ./.config
-          make defconfig
+          #sed -i 's/^[ \t]*//g' ./.config
+          #make defconfig
       #- name: Generate configuration file
       #  run: make defconfig
 
