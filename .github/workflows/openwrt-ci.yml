@@ -61,7 +61,7 @@ jobs:
           ./scripts/feeds install -a
       - name: Coustom configure file
         run: |
-          rm -f ./.config*
+          #rm -f ./.config*
           touch ./.config
           #编译x86_64固件
           cat >> .config <<EOF
