@@ -85,11 +85,17 @@ jobs:
          EOF
          sed -i 's/^[ \t]*//g' ./.config
          make defconfig
-
+         
       - name: Make download
         run: |
-          make download -j8
-          find dl -size -1024c -exec rm -f {} \;
+          make download -j8 || make download -j1 V=s
+          rm -rf $(find ./dl/ -size -1024c)
+          df -h
+
+      #- name: Make download
+      #  run: |
+      #    make download -j8
+      #    find dl -size -1024c -exec rm -f {} \;
 
       - name: Compile firmware
         run: |
