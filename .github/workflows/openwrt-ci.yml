@@ -62,6 +62,8 @@ jobs:
       - name: Generate configuration file
         # run: make defconfig
         run: |
+         rm -f ./.config*
+         touch ./.config
           # 常用LuCI插件选择, 主要定制passwall与ssr-plus
           cat >> .config <<EOF
            CONFIG_PACKAGE_luci-app-adbyby is not set
@@ -97,7 +99,8 @@ jobs:
            CONFIG_TARGET_ROOTFS_PARTSIZE=1300
            CONFIG_TARGET_ROOTFS_PARTNAME=""
           EOF
-          make defconfig
+         sed -i 's/^[ \t]*//g' ./.config
+         make defconfig
 
       - name: Make download
         run: |
