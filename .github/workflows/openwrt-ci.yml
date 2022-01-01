@@ -62,8 +62,6 @@ jobs:
       - name: Generate configuration file
         # run: make defconfig
         run: |
-          rm -f ./.config*
-          touch ./.config
            #编译x86_64固件
           cat >> .config <<EOF
           CONFIG_TARGET_x86=y
@@ -135,7 +133,6 @@ jobs:
           CONFIG_TARGET_ROOTFS_PARTSIZE=1300
           CONFIG_TARGET_ROOTFS_PARTNAME=""
           EOF
-          #sed -i 's/^[ \t]*//g' ./.config
           make defconfig
 
       - name: Make download
