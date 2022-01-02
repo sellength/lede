@@ -76,6 +76,7 @@ jobs:
          CONFIG_PACKAGE_luci-app-cpu-status=y
          CONFIG_PACKAGE_autosamba=n
          CONFIG_PACKAGE_samba36-server=n
+         CONFIG_PACKAGE_luci-app-samba=n
          CONFIG_PACKAGE_luci-app-samba4=y
          CONFIG_PACKAGE_luci-app-accesscontrol=n
          CONFIG_PACKAGE_luci-app-adbyby-plus=n
