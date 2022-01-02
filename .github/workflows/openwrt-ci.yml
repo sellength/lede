@@ -72,10 +72,19 @@ jobs:
          CONFIG_PACKAGE_luci-app-ssr-plus=y
          CONFIG_PACKAGE_luci-app-webadmin=y
          CONFIG_PACKAGE_luci-app-ttyd=y
-         CONFIG_PACKAGE_luci-app-accesscontrol is not set
-         CONFIG_PACKAGE_luci-app-adbyby-plus is not set
-         CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
-         CONFIG_PACKAGE_luci-app-zerotier is not set
+         CONFIG_PACKAGE_luci-app-accesscontrol=n
+         CONFIG_PACKAGE_luci-app-adbyby-plus=n
+         CONFIG_PACKAGE_luci-app-ipsec-vpnd=n
+         CONFIG_PACKAGE_luci-app-zerotier=n
+         CONFIG_TARGET_x86=y
+         CONFIG_TARGET_x86_64=y
+         CONFIG_TARGET_x86_64_Generic=y
+         CONFIG_PACKAGE_grub2-efi=y
+         CONFIG_GRUB_IMAGES=y
+         CONFIG_GRUB_EFI_IMAGES=y
+         CONFIG_TARGET_IMAGES_GZIP=y
+         CONFIG_TARGET_KERNEL_PARTSIZE=256
+         CONFIG_TARGET_ROOTFS_PARTSIZE=1024
          EOF
          
       - name: Make download
