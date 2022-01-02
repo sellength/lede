@@ -56,6 +56,7 @@ jobs:
           # rosy主题
           git clone https://github.com/rosywrt/luci-theme-rosy.git
           git clone https://github.com/fw876/helloworld.git
+          git clone https://github.com/gSpotx2f/luci-app-cpu-status.git
       - name: Update feeds
         run: |
           echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
@@ -71,10 +72,12 @@ jobs:
          CONFIG_PACKAGE_luci-theme-rosy=y
          CONFIG_PACKAGE_luci-app-ssr-plus=y
          CONFIG_PACKAGE_luci-app-webadmin=y
-         CONFIG_PACKAGE_luci-app-ttyd=
+         CONFIG_PACKAGE_luci-app-ttyd=y
          CONFIG_PACKAGE_luci-app-softethervpn=y
+         CONFIG_PACKAGE_luci-app-cpu-status=y
          CONFIG_PACKAGE_luci-app-samba4=y
          CONFIG_PACKAGE_autosamba=y
+         CONFIG_PACKAGE_luci-app-cpufreq=y
          CONFIG_PACKAGE_luci-app-accesscontrol=n
          CONFIG_PACKAGE_luci-app-adbyby-plus=n
          CONFIG_PACKAGE_luci-app-ipsec-vpnd=n
