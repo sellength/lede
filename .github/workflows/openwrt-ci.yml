@@ -87,6 +87,9 @@ jobs:
          CONFIG_PACKAGE_UnblockNeteaseMusic=n
          CONFIG_PACKAGE_luci-app-xlnetacc=n
          CONFIG_PACKAGE_luci-app-wrtbwmon=n
+         CONFIG_PACKAGE_luci-app-nlbwmon=n
+         CONFIG_PACKAGE_luci-i18n-nlbwmon-zh-cn=n
+         CONFIG_PACKAGE_nlbwmon=n
          CONFIG_TARGET_x86=y
          CONFIG_TARGET_x86_64=y
          CONFIG_TARGET_x86_64_Generic=y
