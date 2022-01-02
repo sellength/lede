@@ -60,7 +60,8 @@ jobs:
           sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a   
-      - name: Generate configuration file
+     
+     - name: Generate configuration file
         run: |
          make defconfig
          cat >> .config <<EOF
@@ -73,22 +74,13 @@ jobs:
          CONFIG_PACKAGE_luci-app-adbyby-plus is not set
          CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
          CONFIG_PACKAGE_luci-app-zerotier is not set
-         # 编译x64固件:
-         CONFIG_TARGET_x86=y
-         CONFIG_TARGET_x86_64=y
-         CONFIG_TARGET_x86_64_Generic=y
          EOF
          
       - name: Make download
         run: |
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
-
-      #- name: Make download
-      #  run: |
-      #    make download -j8
-      #    find dl -size -1024c -exec rm -f {} \;
-
+          
       - name: Compile firmware
         run: |
           make -j$(nproc) || make -j1 V=s
