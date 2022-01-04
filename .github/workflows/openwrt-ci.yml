@@ -73,7 +73,6 @@ jobs:
          CONFIG_PACKAGE_luci-app-webadmin=y
          CONFIG_PACKAGE_luci-app-ttyd=y
          CONFIG_PACKAGE_luci-app-softethervpn=y
-         CONFIG_PACKAGE_luci-app-cpu-status=y
          CONFIG_PACKAGE_autosamba=n
          CONFIG_PACKAGE_samba36-server=n
          CONFIG_PACKAGE_luci-app-samba=n
