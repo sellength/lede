@@ -101,7 +101,6 @@ jobs:
          CONFIG_TARGET_ROOTFS_PARTSIZE=1024
          EOF
          make defconfig
-         
       - name: Make download
         run: |
           make download -j8
