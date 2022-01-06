@@ -74,6 +74,7 @@ jobs:
          CONFIG_PACKAGE_luci-app-webadmin=y
          CONFIG_PACKAGE_luci-app-ttyd=y
          CONFIG_PACKAGE_luci-app-softethervpn=y
+         CONFIG_PACKAGE_luci-app-ddns=y
          CONFIG_PACKAGE_ddns-scripts_aliyun=y
          CONFIG_PACKAGE_ddns-scripts_dnspod=y
          CONFIG_PACKAGE_autosamba=n
