@@ -57,9 +57,10 @@ jobs:
           git clone https://github.com/rosywrt/luci-theme-rosy.git
           git clone https://github.com/fw876/helloworld.git
           git clone https://github.com/gSpotx2f/luci-app-cpu-status.git
+          git clone https://github.com/openwrt/openwrt.git
       - name: Update feeds
         run: |
-          echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
+          # echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
           sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a   
@@ -73,6 +74,8 @@ jobs:
          CONFIG_PACKAGE_luci-app-webadmin=y
          CONFIG_PACKAGE_luci-app-ttyd=y
          CONFIG_PACKAGE_luci-app-softethervpn=y
+         CONFIG_PACKAGE_ddns-scripts_aliyun=y
+         CONFIG_PACKAGE_ddns-scripts_dnspod=y
          CONFIG_PACKAGE_autosamba=n
          CONFIG_PACKAGE_samba36-server=n
          CONFIG_PACKAGE_luci-app-samba=n
