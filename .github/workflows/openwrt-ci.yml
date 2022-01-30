@@ -56,8 +56,8 @@ jobs:
           git clone https://github.com/jerrykuku/luci-theme-argon.git 
           # rosy主题
           git clone https://github.com/rosywrt/luci-theme-rosy.git
+          #shadowsocket
           git clone https://github.com/fw876/helloworld.git
-          git clone https://github.com/openwrt/luci.git
       - name: Update feeds
         run: |
           # echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
@@ -73,7 +73,6 @@ jobs:
          CONFIG_PACKAGE_luci-app-ssr-plus=y
          CONFIG_PACKAGE_luci-app-webadmin=y
          CONFIG_PACKAGE_luci-app-ttyd=y
-         CONFIG_PACKAGE_luci-app-softethervpn=n
          CONFIG_PACKAGE_luci-app-ddns=y
          CONFIG_PACKAGE_ddns-scripts_aliyun=y
          CONFIG_PACKAGE_ddns-scripts_dnspod=y
