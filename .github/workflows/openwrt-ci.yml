@@ -56,8 +56,9 @@ jobs:
           git clone https://github.com/jerrykuku/luci-theme-argon.git 
           # rosy主题
           git clone https://github.com/rosywrt/luci-theme-rosy.git
-          # openclash
-          https://github.com/vernesong/OpenClash.git
+          # vssr
+          git clone https://github.com/jerrykuku/luci-app-vssr.git
+          
       - name: Update feeds
         run: |
           # echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
@@ -69,7 +70,7 @@ jobs:
         run: |
          cat >> .config <<EOF
          CONFIG_PACKAGE_luci-proto-wireguard=y
-         CONFIG_PACKAGE_luci-app-openclash=y
+         CONFIG_PACKAGE_luci-app-vssr=y
          CONFIG_PACKAGE_wireguard-kmod=y
          CONFIG_PACKAGE_luci-app-wireguard=y
          CONFIG_PACKAGE_wireguard-tools=y
