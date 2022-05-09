@@ -59,7 +59,7 @@ jobs:
           # vssr
           git clone https://github.com/jerrykuku/luci-app-vssr.git
           git clone https://github.com/kenzok8/small.git
-          https://github.com/jerrykuku/lua-maxminddb.git
+          git clone https://github.com/jerrykuku/lua-maxminddb.git
       - name: Update feeds
         run: |
           # echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
