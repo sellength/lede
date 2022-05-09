@@ -60,6 +60,8 @@ jobs:
           git clone https://github.com/jerrykuku/luci-app-vssr.git
           git clone https://github.com/kenzok8/small.git
           git clone https://github.com/jerrykuku/lua-maxminddb.git
+          # passwall
+          git clone https://github.com/xiaorouji/openwrt-passwall.git
       - name: Update feeds
         run: |
           # echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
@@ -70,6 +72,7 @@ jobs:
       - name: Generate configuration file
         run: |
          cat >> .config <<EOF
+         CONFIG_PACKAGE_luci-app-passwall=y
          CONFIG_PACKAGE_luci-proto-wireguard=y
          CONFIG_PACKAGE_shadowsocksr-libev-ssr-local=y
          CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir=y
