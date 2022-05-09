@@ -62,6 +62,9 @@ jobs:
           # passwall
           git clone https://github.com/xiaorouji/openwrt-passwall2.git
           git clone https://github.com/maxlicheng/luci-app-ssr-plus.git
+          git clone https://github.com/cloverstd/tcping.git
+          git clone https://github.com/klzgrad/naiveproxy.git
+          git clone https://github.com/233boy/v2ray.git
       - name: Update feeds
         run: |
           # echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
@@ -72,6 +75,9 @@ jobs:
       - name: Generate configuration file
         run: |
          cat >> .config <<EOF
+         CONFIG_PACKAGE_v2ray=y
+         CONFIG_PACKAGE_naiveproxy=y
+         CONFIG_PACKAGE_tcping=y
          CONFIG_PACKAGE_luci-app-ssr-plus=y
          CONFIG_PACKAGE_openwrt-passwall2=y
          CONFIG_PACKAGE_luci-proto-wireguard=y
